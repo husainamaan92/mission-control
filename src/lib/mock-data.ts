@@ -1,0 +1,297 @@
+import { Mission, MissionLog } from "@/types/mission";
+
+const generateId = () => Math.random().toString(36).substr(2, 9);
+
+const mockLogs: MissionLog[] = [
+  {
+    id: generateId(),
+    timestamp: new Date(Date.now() - 1000 * 60 * 30).toISOString(),
+    level: "info",
+    message: "Mission briefing completed",
+    details: "All team members attended the initial briefing",
+    author: "Sarah Chen",
+  },
+  {
+    id: generateId(),
+    timestamp: new Date(Date.now() - 1000 * 60 * 20).toISOString(),
+    level: "success",
+    message: "Phase 1 objectives achieved",
+    details: "Successfully completed reconnaissance phase",
+    author: "Marcus Webb",
+  },
+  {
+    id: generateId(),
+    timestamp: new Date(Date.now() - 1000 * 60 * 10).toISOString(),
+    level: "warning",
+    message: "Weather conditions deteriorating",
+    details: "Monitoring situation for potential delays",
+    author: "Alex Rodriguez",
+  },
+  {
+    id: generateId(),
+    timestamp: new Date().toISOString(),
+    level: "info",
+    message: "Proceeding with standard protocol",
+    details: "All systems functioning within normal parameters",
+    author: "Jamie Morrison",
+  },
+];
+
+export const initialMissions: Mission[] = [
+  {
+    id: generateId(),
+    title: "Chandrayaan -3",
+    description:
+      "To soft landing on the moon south pole",
+    status: "active",
+    priority: "high",
+    assignedTo: ["V Narayan", "Mohan Kumar"],
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(),
+    updatedAt: new Date().toISOString(),
+    deadline: new Date(Date.now() + 1000 * 60 * 60 * 4).toISOString(),
+    progress: 65,
+    logs: mockLogs,
+    location: {
+      lat: 45.4215,
+      lng: -75.6972,
+      name: " Thiruvananthapuram",
+    },
+    estimatedDuration: 480,
+    actualDuration: 310,
+    department: "Security",
+    budget: 125000,
+    clientName: "Department of National Defense",
+  },
+  {
+    id: generateId(),
+    title: "Corporate Intelligence Gathering",
+    description:
+      "Comprehensive market analysis and competitive intelligence gathering for strategic business positioning. Focus on emerging technologies and market trends.",
+    status: "completed",
+    priority: "medium",
+    assignedTo: ["Dr. Emily Watson", "John Smith"],
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60).toISOString(),
+    deadline: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(),
+    progress: 100,
+    logs: [
+      {
+        id: generateId(),
+        timestamp: new Date(Date.now() - 1000 * 60 * 60 * 3).toISOString(),
+        level: "info",
+        message: "Data collection phase initiated",
+        details: "Beginning systematic information gathering",
+        author: "Emily Watson",
+      },
+      {
+        id: generateId(),
+        timestamp: new Date(Date.now() - 1000 * 60 * 60).toISOString(),
+        level: "success",
+        message: "Mission objectives fulfilled",
+        details: "All required intelligence gathered and analyzed",
+        author: "John Smith",
+      },
+    ],
+    estimatedDuration: 240,
+    actualDuration: 220,
+    department: "Intelligence",
+    budget: 85000,
+    clientName: "Phoenix Industries",
+  },
+  {
+    id: generateId(),
+    title: "Asset Recovery Protocol",
+    description:
+      "Coordinate recovery operations for misplaced strategic assets. Requires careful planning and multi-team coordination for successful retrieval.",
+    status: "pending",
+    priority: "critical",
+    assignedTo: [
+      "Captain Rodriguez",
+      "Lt. Morrison",
+      "Agent Thompson",
+      "Dr. Patel",
+    ],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    deadline: new Date(Date.now() + 1000 * 60 * 60 * 8).toISOString(),
+    progress: 0,
+    logs: [],
+    location: {
+      lat: 40.7589,
+      lng: -73.9851,
+      name: "New York Field Office",
+    },
+    estimatedDuration: 360,
+    department: "Operations",
+    budget: 200000,
+    clientName: "Federal Bureau of Investigation",
+  },
+  {
+    id: generateId(),
+    title: "Technology Assessment Review",
+    description:
+      "Evaluate and test new surveillance technologies for field deployment. Includes compatibility testing and security vulnerability assessment.",
+    status: "failed",
+    priority: "low",
+    assignedTo: ["Tech Specialist Davis"],
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 6).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 3).toISOString(),
+    deadline: new Date(Date.now() - 1000 * 60 * 60).toISOString(),
+    progress: 30,
+    logs: [
+      {
+        id: generateId(),
+        timestamp: new Date(Date.now() - 1000 * 60 * 60 * 5).toISOString(),
+        level: "info",
+        message: "Equipment testing commenced",
+        details: "Beginning systematic evaluation protocols",
+        author: "Tech Specialist Davis",
+      },
+      {
+        id: generateId(),
+        timestamp: new Date(Date.now() - 1000 * 60 * 60 * 3).toISOString(),
+        level: "error",
+        message: "Critical system vulnerability discovered",
+        details: "Security flaw prevents deployment approval",
+        author: "Tech Specialist Davis",
+      },
+    ],
+    estimatedDuration: 120,
+    actualDuration: 75,
+    department: "Technology",
+    budget: 45000,
+    clientName: "Internal R&D",
+  },
+  {
+    id: generateId(),
+    title: "Aditya - L1",
+    description:
+      "Launched to Study the sun from the first sun-earth",
+    status: "active",
+    priority: "medium",
+    assignedTo: ["sharavan", "vipin rawat"],
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 12).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 30).toISOString(),
+    deadline: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(),
+    progress: 45,
+    logs: [
+      {
+        id: generateId(),
+        timestamp: new Date(Date.now() - 1000 * 60 * 60 * 10).toISOString(),
+        level: "info",
+        message: "Initial contact established",
+        details: "Preliminary discussions with foreign counterparts",
+        author: "Ambassador Narayan",
+      },
+    ],
+    location: {
+      lat: 38.9072,
+      lng: -77.0369,
+      name: "Hyderabad",
+    },
+    estimatedDuration: 720,
+    actualDuration: 540,
+    department: "Logistics",
+    budget: 150000,
+    clientName: "State Department",
+  },
+];
+
+export const generateMockMission = (
+  overrides: Partial<Mission> = {},
+): Mission => {
+  return {
+    id: generateId(),
+    title: "New Mission",
+    description: "Mission description",
+    status: "pending",
+    priority: "medium",
+    assignedTo: [],
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    progress: 0,
+    logs: [],
+    estimatedDuration: 240,
+    department: "Operations",
+    ...overrides,
+  };
+};
+
+// Available team members for assignment
+export const availableAgents = [
+  { id: "1", name: "Amaan Husain", department: "Security", role: "Senior Agent" },
+  { id: "2", name: "Priyanshu Kumar sah", department: "Intelligence", role: "Analyst" },
+  {
+    id: "3",
+    name:"Vivek Ranjan",
+    department: "Operations",
+    role: "Field Coordinator",
+  },
+  {
+    id: "4",
+    name: "Arin Pandey",
+    department: "Logistics",
+    role: "Support Specialist",
+  },
+  {
+    id: "5",
+    name: "Dr.Ayush dubey",
+    department: "Intelligence",
+    role: "Research Director",
+  },
+  {
+    id: "6",
+    name: "Jatin Singh",
+    department: "Technology",
+    role: "Tech Specialist",
+  },
+  {
+    id: "7",
+    name: "Rausan Pandit",
+    department: "Operations",
+    role: "Team Leader",
+  },
+  {
+    id: "8",
+    name: "Lokark Bharmar",
+    department: "Security",
+    role: "Tactical Officer",
+  },
+  {
+    id: "9",
+    name: "Ankit",
+    department: "Intelligence",
+    role: "Field Agent",
+  },
+  {
+    id: "10",
+    name: "Dr. Arnav Rai",
+    department: "Technology",
+    role: "Systems Analyst",
+  },
+  {
+    id: "11",
+    name: "Mohit Singh",
+    department: "Technology",
+    role: "Equipment Specialist",
+  },
+  {
+    id: "12",
+    name: "Chandransu",
+    department: "Logistics",
+    role: "Diplomatic Liaison",
+  },
+  {
+    id: "13",
+    name: "Agent praveen",
+    department: "Security",
+    role: "International Coordinator",
+  },
+  {
+    id: "14",
+    name: "Coordinator Amaan",
+    department: "Logistics",
+    role: "Mission Planner",
+  },
+];
+ 
